@@ -626,6 +626,9 @@ public class FileUtils {
 
         writer.write(String.format("htFullRandom=%s", Settings.isHTFullRandom()));
         writer.newLine();
+        
+        writer.write(String.format("gotFullRandom=%s", Settings.isGoTFullRandom()));
+        writer.newLine();
 
         writer.write(String.format("randomizeDracuetShop=%s", Settings.isRandomizeDracuetShop()));
         writer.newLine();

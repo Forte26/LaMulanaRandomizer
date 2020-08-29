@@ -37,6 +37,7 @@ public final class Settings {
     private boolean randomizeXmailer;
     private boolean randomizeForbiddenTreasure;
     private boolean htFullRandom;
+    private boolean gotFullRandom;
     private boolean randomizeDracuetShop;
     private boolean includeHellTempleNPCs;
     private boolean randomizeCoinChests;
@@ -108,6 +109,7 @@ public final class Settings {
         randomizeXmailer = true;
         randomizeForbiddenTreasure = false;
         htFullRandom = false;
+        gotFullRandom = true;
         randomizeDracuetShop = false;
         includeHellTempleNPCs = false;
         randomizeCoinChests = true;
@@ -362,6 +364,17 @@ public final class Settings {
             singleton.changed = true;
         }
         singleton.htFullRandom = htFullRandom;
+    }
+    
+    public static boolean isGoTFullRandom() {
+    	return singleton.gotFullRandom;
+    }
+    
+    public static void setGoTFullRandom(boolean gotFullRandom, boolean update) {
+    	if (update && gotFullRandom != singleton.gotFullRandom) {
+    		singleton.changed = true;
+    	}
+    	singleton.gotFullRandom = gotFullRandom;
     }
 
     public static boolean isRandomizeDracuetShop() {
