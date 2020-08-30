@@ -475,6 +475,9 @@ public class FileUtils {
             else if(line.startsWith("htFullRandom")) {
                 Settings.setHTFullRandom(Boolean.valueOf(line.split("=")[1]), false);
             }
+            else if(line.startsWith("gotFullRandom")) {
+            	Settings.setGoTFullRandom(Boolean.valueOf(line.split("=")[1]), false);
+            }
             else if(line.startsWith("randomizeDracuetShop")) {
                 Settings.setRandomizeDracuetShop(Boolean.valueOf(line.split("=")[1]), false);
             }

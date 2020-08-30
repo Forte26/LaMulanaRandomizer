@@ -464,6 +464,18 @@ public final class DataFromFile {
         }
         return enabledItems;
     }
+    
+    public static List<String> getGOTItems(List<String> possibleItems) {
+    	List<String> remainingUselessItems = new ArrayList<>(possibleItems.size());
+    	
+    	for (String item : possibleItems) {
+    		if (USELESS_ITEMS.contains(item)) {
+    			remainingUselessItems.add(item);
+    		}
+    	}
+    	
+    	return remainingUselessItems;
+    }
 
     public static CustomPlacementData getCustomPlacementData() {
         if(customPlacementData == null) {

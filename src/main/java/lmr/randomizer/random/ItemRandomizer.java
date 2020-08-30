@@ -154,6 +154,16 @@ public class ItemRandomizer {
         }
         return true;
     }
+    
+    public boolean placeGateOfTimeItem(Random random) {
+    	List<String> possibleItems = DataFromFile.getGOTItems(unplacedItems);
+    	String item = possibleItems.get(random.nextInt(possibleItems.size()));
+    	mapOfItemLocationToItem.put("lamulana.exe", item);
+    	unplacedItems.remove(item);
+    	unassignedNonShopItemLocations.remove("lamulana.exe");
+    	
+    	return true;
+    }
 
     public boolean placeChestOnlyItems(Random random) {
         List<String> chestOnlyItems = getUnplacedChestOnlyItems();

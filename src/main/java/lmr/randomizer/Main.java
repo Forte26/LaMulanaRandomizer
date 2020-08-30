@@ -1323,6 +1323,9 @@ public class Main {
             if(Settings.isRandomizeForbiddenTreasure()) {
                 itemRandomizer.placeForbiddenTreasureItem(random);
             }
+            if (!Settings.isGoTFullRandom()) {
+            	itemRandomizer.placeGateOfTimeItem(random);
+            }
             shopRandomizer.determineItemTypes(random);
             accessChecker.determineCursedChests(random);
             if(Settings.isRandomizeCoinChests() || Settings.isRandomizeTrapItems()) {
