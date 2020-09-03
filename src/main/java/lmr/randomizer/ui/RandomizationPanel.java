@@ -18,7 +18,6 @@ public class RandomizationPanel extends JPanel {
     private WeaponRandomizationPanel weaponRandomization;
     private ShopRandomizationRadio shopRandomization;
     private SwimsuitRandomizationPanel swimsuitRandomization;
-    private GateOfTimeRandomizationPanel gotRandomization;
 
     public RandomizationPanel() {
         super(new MigLayout("fillx, wrap, gapy 0"));
@@ -34,9 +33,6 @@ public class RandomizationPanel extends JPanel {
 
         swimsuitRandomization = new SwimsuitRandomizationPanel();
         add(swimsuitRandomization, "growx, wrap");
-        
-        gotRandomization = new GateOfTimeRandomizationPanel();
-        add(gotRandomization, "growx, wrap");
 
         randomizeCoinChests = new JCheckBox();
         randomizeCoinChests.setSelected(Settings.isRandomizeCoinChests());
@@ -74,7 +70,6 @@ public class RandomizationPanel extends JPanel {
         weaponRandomization.updateTranslations();
         shopRandomization.updateTranslations();
         swimsuitRandomization.updateTranslations();
-        gotRandomization.updateTranslations();
     }
 
     public void updateSettings() {
@@ -87,7 +82,6 @@ public class RandomizationPanel extends JPanel {
         weaponRandomization.updateSettings();
         shopRandomization.updateSettings();
         swimsuitRandomization.updateSettings();
-        gotRandomization.updateSettings();
     }
 
     public void reloadSettings() {
@@ -95,7 +89,6 @@ public class RandomizationPanel extends JPanel {
         weaponRandomization.reloadSettings();
         shopRandomization.reloadSettings();
         swimsuitRandomization.reloadSettings();
-        gotRandomization.reloadSettings();
 
         randomizeCoinChests.setSelected(Settings.isRandomizeCoinChests());
         randomizeTrapItems.setSelected(Settings.isRandomizeTrapItems());

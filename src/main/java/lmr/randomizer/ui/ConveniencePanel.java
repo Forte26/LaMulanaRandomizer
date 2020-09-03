@@ -11,6 +11,7 @@ public class ConveniencePanel extends JPanel {
     private JCheckBox automaticTranslations;
     private JCheckBox ushumgalluAssist;
     private JCheckBox bossCheckpoints;
+    private JCheckBox gateOfTimeForcedMap;
 
     public ConveniencePanel() {
         super(new MigLayout("fillx"));
@@ -27,12 +28,16 @@ public class ConveniencePanel extends JPanel {
 
         bossCheckpoints = new JCheckBox();
         bossCheckpoints.setSelected(Settings.isBossCheckpoints());
+        
+        gateOfTimeForcedMap = new JCheckBox();
+        gateOfTimeForcedMap.setSelected(!Settings.isGoTFullRandom());
 
         CheckboxContainer checkboxContainer = new CheckboxContainer(1);
         checkboxContainer.add(automaticGrailPoints);
         checkboxContainer.add(automaticTranslations);
         checkboxContainer.add(ushumgalluAssist);
         checkboxContainer.add(bossCheckpoints);
+        checkboxContainer.add(gateOfTimeForcedMap);
         add(checkboxContainer, "growx, wrap");
 
         updateTranslations();
@@ -43,6 +48,7 @@ public class ConveniencePanel extends JPanel {
         Settings.setAutomaticTranslations(automaticTranslations.isSelected(), true);
         Settings.setUshumgalluAssist(ushumgalluAssist.isSelected(), true);
         Settings.setBossCheckpoints(bossCheckpoints.isSelected(), true);
+        Settings.setGoTFullRandom(!gateOfTimeForcedMap.isSelected(), true);
     }
 
     public void updateTranslations() {
@@ -51,6 +57,7 @@ public class ConveniencePanel extends JPanel {
         automaticTranslations.setText(Translations.getText("gameplay.automaticTranslations"));
         ushumgalluAssist.setText(Translations.getText("gameplay.ushumgalluAssist"));
         bossCheckpoints.setText(Translations.getText("gameplay.bossCheckpoints"));
+        gateOfTimeForcedMap.setText(Translations.getText("randomization.gateOfTimeItem"));
     }
 
     public void reloadSettings() {
@@ -58,5 +65,6 @@ public class ConveniencePanel extends JPanel {
         automaticTranslations.setSelected(Settings.isAutomaticTranslations());
         ushumgalluAssist.setSelected(Settings.isUshumgalluAssist());
         bossCheckpoints.setSelected(Settings.isBossCheckpoints());
+        gateOfTimeForcedMap.setSelected(!Settings.isGoTFullRandom());
     }
 }

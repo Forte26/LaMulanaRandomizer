@@ -1002,7 +1002,6 @@ public final class Settings {
         BiFunction<Boolean, Integer, Integer> processBooleanFlag = (Boolean b, Integer flagIndex) -> boolToInt(b) << flagIndex;
 
         int booleanSettings = 0;
-        booleanSettings |= processBooleanFlag.apply(singleton.gotFullRandom, 29);
         booleanSettings |= processBooleanFlag.apply(singleton.alternateMotherAnkh, 28);
         booleanSettings |= processBooleanFlag.apply(singleton.randomizeNonBossDoors, 27);
         booleanSettings |= processBooleanFlag.apply(singleton.randomizeOneWayTransitions, 26);
@@ -1050,6 +1049,7 @@ public final class Settings {
         int bossDifficulty = singleton.bossDifficulty.ordinal();
 
         int booleanSettings2 = 0;
+        booleanSettings2 |= processBooleanFlag.apply(singleton.gotFullRandom, 8);
         booleanSettings2 |= processBooleanFlag.apply(singleton.bossCheckpoints, 7);
         booleanSettings2 |= processBooleanFlag.apply(singleton.screenshakeDisabled, 6);
         booleanSettings2 |= processBooleanFlag.apply(singleton.includeHellTempleNPCs, 5);
@@ -1099,7 +1099,6 @@ public final class Settings {
 
         BiFunction<Integer, Integer, Boolean> getBoolFlagFromInt = (startingVal, flagIdx) -> intToBool((startingVal >> flagIdx) & 0x1);
 
-        singleton.gotFullRandom = getBoolFlagFromInt.apply(booleanSettingsFlag, 29);
         singleton.alternateMotherAnkh = getBoolFlagFromInt.apply(booleanSettingsFlag, 28);
         singleton.randomizeNonBossDoors = getBoolFlagFromInt.apply(booleanSettingsFlag, 27);
         singleton.randomizeOneWayTransitions = getBoolFlagFromInt.apply(booleanSettingsFlag, 26);
@@ -1139,6 +1138,7 @@ public final class Settings {
         int maxRandomRemovedItems = Integer.parseInt(parts[9],16);
 
         int booleanSettingsFlag2 = Integer.parseInt(parts[10], 16);
+        singleton.gotFullRandom = getBoolFlagFromInt.apply(booleanSettingsFlag2, 8);
         singleton.bossCheckpoints = getBoolFlagFromInt.apply(booleanSettingsFlag2, 7);
         singleton.screenshakeDisabled = getBoolFlagFromInt.apply(booleanSettingsFlag2, 6);
         singleton.includeHellTempleNPCs = getBoolFlagFromInt.apply(booleanSettingsFlag2, 5);
